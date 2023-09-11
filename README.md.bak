@@ -19,3 +19,14 @@
 * выполнить команду "terraform apply" и подтвердить выполнение командой "yes"
 * после окончания создания виртуальных машин выполните команду "TF_STATE=. ansible-playbook --inventory-file=/opt/terraform-inventory ../ansible/main.yml"
 * после завершения установки софта в консоль будет выведен публичный ip, который нужно использовать в браузерной строке "http://<публичный ip>"
+
+
+```mermaid
+flowchart TB
+    A1[Client1] --> |public ip|B
+    A2[Client2] --> |public ip|B 
+    A3[Client3] --> |public ip|B
+    B[Nginx-balancing]
+    B --> C[backend1] --> E
+    B --> D[backend2] --> E
+    E[DB]

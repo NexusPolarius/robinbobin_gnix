@@ -1,4 +1,4 @@
-# terra_gnix
+# robinbobin_gnix
 
 ДЗ Nginx - балансировка и отказоустойчивость.
 
