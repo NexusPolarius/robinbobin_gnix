@@ -1,0 +1,31 @@
+---
+- name: db
+  hosts: 
+    vm_db
+  become: True
+  
+  roles:
+    - { role: postgres, tags: [postgres] }
+
+- name: frontend
+  hosts: 
+    vm_frontend
+  become: True
+
+  roles:
+    - { role: nginx, tags: [nginx] }
+
+- name: backend
+  hosts: 
+    vm_backend1
+    vm_backend2
+  become: True
+  
+  roles:
+    - { role: nginx, tags: [nginx] }
+    - { role: django, tags: [django] }
+    - { role: migrate, tags: [migrate] }
+
+          
+
+
